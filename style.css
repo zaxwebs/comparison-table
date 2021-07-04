@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+.comparison-table {
+	max-width: 1200px;
+	margin: auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	font-family: "Inter", sans-serif;
+	color: #242424;
+}
+
+th,
+td {
+	padding: 16px;
+	text-align: left;
+}
+
+th {
+	font-weight: 400;
+}
+
+tbody th {
+	font-weight: 500;
+}
+
+.plan-name {
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
+.term-label {
+	color: #02c698;
+	font-size: 0.9rem;
+}
+
+.price {
+	font-size: 2.7rem;
+	font-weight: 500;
+}
+
+.price:before {
+	content: "$";
+}
+
+table .inactive-plan {
+	display: none;
+}
+
+.input {
+	margin-bottom: 12px;
+	display: flex;
+	align-items: center;
+	max-width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input label {
+	margin-right: 15px;
+}
+
+.input input {
+	flex: 1;
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #232347;
+	border-radius: 4px;
+}
+
+tr {
+	border-bottom: 1px solid #dedee4;
+}
+
+tbody tr:last-child {
+	border-bottom: none;
+}
+
+.switcher .active-plan,
+.switcher .active-term {
+	background: #02c698;
+	color: #fff;
+}
+
+.switcher {
+	background: #e6f9ff;
+	margin-bottom: 12px;
+	display: inline-flex;
+	padding: 4px;
+	border-radius: 999px;
+}
+
+.switcher div {
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 999px;
+	padding: 8px 16px;
+	margin-right: 4px;
+}
+
+.switcher div:last-child {
+	border-right: none;
+	margin-right: 0;
+}
+
+.switcher div:hover {
+	background: #02c698;
+	color: #fff;
+}
+
+.selector label {
+	margin-right: 10px;
+}
+
+.fa-check {
+	color: #02c698;
+}
+
+.fa-times {
+	color: #ff4b81;
+}
+
+@media (min-width: 700px) {
+	table .inactive-plan {
+		display: table-cell;
+	}
+
+	.plan-selector {
+		display: none;
+	}
+
+	body {
+		padding-top: 100px;
+	}
+}

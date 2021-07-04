@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<title>Comparison Table</title>
+	</head>
+	<body>
+		<div class="comparison-table" x-data="table()">
+			<div class="selector">
+			<label>Select Term</label>
+				<div class="switcher">
+					<template x-for="term in Object.keys(terms)">
+						<div :class="termClass(term)" x-text="term" @click="switchTerm(term)"></div>
+					</template>
+				</div>
+			</div>
+			<div class="selector plan-selector">
+				<label>Select Plan</label>
+				<div class="switcher">
+					<template x-for="plan in Object.keys(plans)">
+						<div :class="planClass(plan)" x-text="plan" @click="switchPlan(plan)"></div>
+					</template>
+				</div>
+			</div>
+			
+			
+			<table>
+				<thead>
+					<tr>
+						<th style="visibility: hidden; border: none;""></th>
+						<template x-for="plan in Object.keys(plans)">
+							<th :class="planClass(plan)">
+								<div class="plan-name" x-text="plan"></div>
+								<div x-text="plans[plan].description"></div>
+							</th>
+						</template>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="price-row">
+						<th>Price</th>
+						<template x-for="plan in Object.keys(plans)">
+							<td :class="planClass(plan)">
+								<div
+									class="price"
+									x-text="calculatePrice(plan)"
+								></div>
+								<div
+									class="term-label"
+									x-text="terms[currentTerm].label"
+								></div>
+							</td>
+						</template>
+					</tr>
+					<template x-for="feature in Object.keys(features)">
+						<tr>
+							<th x-text="feature"></th>
+							<template x-for="value, index in features[feature]">
+								<td :class="planClass(Object.keys(plans)[index])" x-html="parseValue(value)"></td>
+							</template>
+						</tr>
+					</template>
+				</tbody>
+			</table>
+		</div>
+		<script src="script.js"></script>
+		<script src="//unpkg.com/alpinejs" defer></script>
+	</body>
+</html>
