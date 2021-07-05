@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
+body {
+	font-family: "Inter", sans-serif;
+	color: #242424;
+}
+
 .comparison-table {
 	max-width: 1200px;
 	margin: auto;
@@ -8,8 +13,6 @@
 table {
 	border-collapse: collapse;
 	width: 100%;
-	font-family: "Inter", sans-serif;
-	color: #242424;
 }
 
 th,
